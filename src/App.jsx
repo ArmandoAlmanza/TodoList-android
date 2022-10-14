@@ -1,34 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useRef, useState, useEffect } from "react";
+import { TodoList } from "./Components/TodoList";
+import feli from "./assets/feli.jpg"
+import { v4 as uuidv4 } from "uuid";
 
-function App() {
-  const [count, setCount] = useState(0)
+const KEY ="todoApp.todos";
+
+export function App() {
+  // creamos una constante (uno sera el estado y el otro para modificarlo)
+  const [todos, setTodos] = useState([
+    { id: 1, task: "Tarea ", completed: false },
+  ]);
+
+  const todoTaskRef = useRef();
+
+  useEffect(()=> {
+    const storedTodos = JSON.parse(localStorage.getItem(KEY));
+    if(storedTodos){
+        setTodos(storedTodos);
+    }
+  },[]);
+
+  useEffect(()=>{
+    localStorage.setItem(KEY, JSON.stringify(todos))
+  }, [todos]);
+
+  const toggleTodo = (id)=>{
+    const newTodos = [...todos];
+    const todo = newTodos.find((todo)=>todo.id===id);
+    todo.completed = !todo.completed;
+    setTodos(newTodos);
+  }
+
+  const handleTodoAdd = () => {
+    const task = todoTaskRef.current.value;
+    if (task === "") return;
+
+    setTodos((prevTodos) => {
+      return [...prevTodos, { id: uuidv4(), task, completed: false }];
+    });
+
+    todoTaskRef.current.value = null;
+  };
+
+  const handleClearAll = () =>{
+    const newTodos = todos.filter((todo)=> !todo.completed);
+    setTodos(newTodos);
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <input ref={todoTaskRef} type="test" placeholder="Nueva Tarea" />
+      <button onClick={handleTodoAdd}>+</button>
+      <button onClick={handleClearAll}>TRASH </button>
+      <div>Te quedan {todos.filter((todo)=> !todo.completed).length} tareas por terminar</div>
+      <div><img src={feli} alt="logo" /></div>
+    </>
+  );
 }
-
-export default App
