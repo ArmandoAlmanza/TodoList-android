@@ -49,7 +49,10 @@ export function App() {
 
     return (
         <div className="container">
-            <h1 className="title">Welcome to our todo list</h1>
+            <div className="word-waves">
+            <span>Welcome to our todo list</span>
+            <span>Welcome to our todo list</span>  
+                </div> 
             <div className="todo__form">
                 <div className="campo">
                     <input

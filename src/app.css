@@ -2,7 +2,7 @@ html {
     font-size: 62.5%;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    background-color: #efefef;
+    background-color: #BAFFB4;
 }
 
 *,
@@ -26,10 +26,56 @@ ul {
     flex-direction: column;
     justify-content: center;
 }
-.title {
+.word-waves span {
+    position: absolute;
+    color: #F5F7B2;
+    font-size: 5rem;
+    transform: translate(-50%, -50%);
+    
+}
+
+.word-waves{
     text-align: center;
-    margin: 3rem 0 1rem 0;
-    color: #41444b;
+}
+.word-waves span:nth-child(1) {
+
+    color: transparent;
+    -webkit-text-stroke: 0.3px #0E185F;
+}
+.word-waves span:nth-child(2) {
+    color: rgb(128, 198, 255);
+    -webkit-text-stroke: 1px #31C6D4;
+    animation: animation 3s ease-in-out infinite;
+}
+@keyframes animation {
+    0%,
+    100% {
+    clip-path: polygon(
+        0% 45%,
+        15% 44%,
+        32% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+    );
+    }
+
+    50% {
+    clip-path: polygon(
+        0% 60%,
+        16% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+    );
+    }
 }
 
 .todo__form {
@@ -45,7 +91,7 @@ ul {
     min-height: 50px;
     max-width: 150px;
     padding: 0 1rem;
-    color: #41444b;
+    color: #1E3163;
     font-size: 15px;
     border: 1px solid #5e4dcd;
     border-radius: 6px 0 0 6px;
@@ -64,11 +110,11 @@ ul {
 }
 
 .btn__delete {
-    background-color: #d57e7e;
+    background-color: #c37b89;
     border-radius: 6px;
 }
 .btn__delete:hover {
-    background-color: #c37b89;
+    background-color: #FF4848;
 }
 
 .btn__add {
