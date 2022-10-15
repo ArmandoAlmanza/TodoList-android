@@ -9,13 +9,16 @@ export function TodoItems({ todo, toggleTodo }) {
 
     return (
         <li className="todo">
-            <input
-                type="checkbox"
-                checked={completed}
-                onChange={handleTodoClick}
-                name="todo"
-            />
-            <label htmlFor="todo">{task}</label>
+            <label name="todo" className="cont">
+                <input
+                    type="checkbox"
+                    checked={completed}
+                    onChange={handleTodoClick}
+                />
+                <span></span>
+            </label>
+
+            <label htmlFor="todo" className="label__todo">{task}</label>
         </li>
     );
 }
