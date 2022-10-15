@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { TodoList } from "./Components/TodoList";
-import feli from "./assets/feli.jpg";
+import a from "./assets/a.mp4";
 import { v4 as uuidv4 } from "uuid";
 
 const KEY = "todoApp.todos";
@@ -50,9 +50,9 @@ export function App() {
     return (
         <div className="container">
             <div className="word-waves">
-            <span>Welcome to our todo list</span>
-            <span>Welcome to our todo list</span>  
-                </div> 
+                <span>Welcome to our todo list</span>
+                <span>Welcome to our todo list</span>
+            </div>
             <div className="todo__form">
                 <div className="campo">
                     <input
@@ -80,6 +80,11 @@ export function App() {
                 </p>
             </div>
             <TodoList todos={todos} toggleTodo={toggleTodo} />
+            <div className="gif__container">
+                <video autoPlay loop className="a">
+                    <source src={a} type="video/mp4"  />
+                </video>
+            </div>
         </div>
     );
 }
