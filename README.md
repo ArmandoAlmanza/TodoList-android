@@ -24,9 +24,15 @@ npm start
 ```
 
 <hr>
-<h2 align="center"> Why react? </h2>  
+<h2 align="center"> Why react? </h2>
 
-***Explicación:*** nosotros decimos utilizar React debido a que fue un nuevo programa donde en primer lugar nos llamó mucho la atención y quisimos usarla para conocer más sobre qué se puede hacer de manera que se vea una innovación de nuestro trabajo demostrando que más estamos dispuestos a aprender para poder saber hasta donde podríamos llegar, poder expander nuestros conocimientos, aprendiendo mas acerca de más programas y conociendo acerca de ellos
+**_Explicación:_** nosotros decimos utilizar React debido a que fue un nuevo programa donde en primer lugar nos llamó mucho la atención y quisimos usarla para conocer más sobre qué se puede hacer de manera que se vea una innovación de nuestro trabajo demostrando que más estamos dispuestos a aprender para poder saber hasta donde podríamos llegar, poder expander nuestros conocimientos, aprendiendo mas acerca de más programas y conociendo acerca de ellos
+
+| Name                              | Matricula |
+| --------------------------------- | --------- |
+| Luis Armando Sanchez Almanza      | 02955256  |
+| Mariana Alejandra Mercado Aguilar | 02979977  |
+| Sergio Daniel Cholula Gamez       | 02960426  |
 
 <p align="center">
   <img src="src/assets/feli.jpg" height="400">
